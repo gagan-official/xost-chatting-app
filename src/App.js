@@ -1,11 +1,18 @@
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <>
-      hello!
-      <h3>Ajay</h3>
-    </>
+    <div 
+      style={{
+        // backgroundImage: `url("public/chatbg1.svg")`
+      }}
+      className={styles.mainCont}
+    >
+      <div className={styles.leftCont}>
+        <image />
+      </div>
+      <div className={styles.rightCont}></div>
+    </div>
   );
 }
 
