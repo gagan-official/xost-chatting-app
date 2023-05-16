@@ -9,6 +9,7 @@ function App() {
       className={styles.mainCont}
     >
       <div className={styles.leftCont}>
+        <span className={styles.circle  }/>
         <image />
       </div>
       <div className={styles.rightCont}></div>
