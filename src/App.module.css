@@ -1,10 +1,13 @@
 .mainCont {
     width: 100vw;
     height: 100vh;
-    background-image: url("../public/chatbg1.svg");
+    background-image: url("../public/images/chatbg1.svg");
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
 }
-.mainCont::after {
+.mainCont::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -15,16 +18,48 @@
     width: 70%;
 }
 .rightCont {
-    width: 30%;
+    position: relative;
+    width: 50%;
+    height: 200%;
+    margin: -25% -10% 0 0;
+    background: #202020;
+    border-radius: 50%;
+    box-shadow: -20px 0px 60px rgba(0, 0, 0, 0.35);
+}
+.shade1,
+.shade2 {
+    position: absolute;
+    height: 250%;
+    aspect-ratio: 1/1;
+    left: 25%;
+    top: -145%;
+    background: radial-gradient(46.04% 46.04% at 50% 50%, #294198 0%, rgba(50, 50, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+.shade1 {
+    height: 70%;
+    left: -8%;
+    top: auto;
+    bottom: 0%;
 }
 .circle {
     position: absolute;
     top: -20%;
-    left: -50%;
+    left: -23.5%;
     height: 100%;
     aspect-ratio: 1/1;
     border-radius: 50%;
     transform: rotate(180deg);
-    background: conic-gradient(from 179.94deg at 49.95% 56.16%, #E4701C 0deg, #000000 360deg);
     background: conic-gradient(from 0deg at 49.95% 56.16%, #E4701C 0deg, #000000 360deg);
+}
+.logo {
+    position: relative;
+    display: block;
+    width: 40%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1/1;
+    background-image: url("./assets/XOSTLogo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
