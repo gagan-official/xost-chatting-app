@@ -1,4 +1,5 @@
 import styles from './App.module.css';
+import { SiGoogle } from 'react-icons/si';
 // import Image1 from './assets/XOSTLogo.svg';
 
 function App() {
@@ -17,13 +18,19 @@ function App() {
         <span className={styles.logo}>
           <p className={styles.para}>To connect with your DOST!</p>
         </span>
-        <img 
+        {/* <img 
           src={"../public/assets/XOSTLogo.svg"}
           alt="Xost Logo"
           className={styles.logo}
-        />
+        /> */}
       </div>
-      <div className={styles.rightCont}></div>
+      <div className={styles.rightCont}>
+        <div className={styles.rightInnerCont}>
+          <h2 className={styles.heading}>Login</h2>
+          <span className={styles.loginImg}/>
+          <button className={styles.googleBtn}><SiGoogle size={"1.5rem"}/> Login with Google</button>
+        </div>
+      </div>
     </div>
   );
 }

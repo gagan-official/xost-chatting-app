@@ -14,18 +14,11 @@
     height: 100%;
     background: linear-gradient(180deg, rgba(32, 32, 32, 0.9) 0%, rgba(32, 32, 32, 0.828) 100%);
 }
+
 .leftCont {
     width: 70%;
 }
-.rightCont {
-    position: relative;
-    width: 50%;
-    height: 200%;
-    margin: -25% -10% 0 0;
-    background: #202020;
-    border-radius: 50%;
-    box-shadow: -20px 0px 60px rgba(0, 0, 0, 0.35);
-}
+
 .shade1,
 .shade2 {
     position: absolute;
@@ -59,7 +52,62 @@
     top: 50%;
     transform: translate(-50%, -50%);
     aspect-ratio: 1/1;
-    background-image: url("./assets/XOSTLogo.svg");
+    background-image: url("../public/assets/XOSTLogo.svg");
     background-size: contain;
     background-repeat: no-repeat;
+    text-align: center;
+}
+.para {
+    color: #fff;
+    font-style: italic;
+    font-family: 'Poly', serif;
+    font-size: 2rem;
+    white-space: nowrap;
+    position: relative;
+    top: 100%;
+}
+
+.rightCont {
+    position: relative;
+    width: 50%;
+    height: 200%;
+    margin: -25% -10% 0 0;
+    background: #202020;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    box-shadow: -20px 0px 60px rgba(0, 0, 0, 0.35);
+}
+
+.rightInnerCont {
+    height: 100vh;
+    width: 30vw;
+    position: relative;
+    left: 10%;
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+.loginImg {
+    background-image: url("../public/assets/loginImg.svg");
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.googleBtn {
+    all: unset;
+    padding: 1rem 1.5rem 1rem 1rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    border-radius: 10rem;
 }
