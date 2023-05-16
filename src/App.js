@@ -2,7 +2,7 @@ import styles from './App.module.css';
 // import Image1 from './assets/XOSTLogo.svg';
 
 function App() {
-  console.log("images/XOSTLogo.svg")
+  // console.log("images/XOSTLogo.svg")
   return (
     <div 
       style={{
