@@ -1,7 +1,7 @@
 .mainCont {
     width: 100vw;
     height: 100vh;
-    background-image: url("../public/images/chatbg1.svg");
+    background-image: url("../public/assets/chatbg1.svg");
     position: relative;
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import Image1 from './assets/XOSTLogo.svg';
+// import Image1 from './assets/XOSTLogo.svg';
 
 function App() {
   console.log("images/XOSTLogo.svg")
@@ -17,12 +17,11 @@ function App() {
         <span className={styles.logo}>
           <p className={styles.para}>To connect with your DOST!</p>
         </span>
-        {/* <image 
-          // src={"../public/images/XOSTLogo.svg"}
-          src={Image1}
+        <img 
+          src={"../public/assets/XOSTLogo.svg"}
           alt="Xost Logo"
           className={styles.logo}
-        /> */}
+        />
       </div>
       <div className={styles.rightCont}></div>
     </div>
