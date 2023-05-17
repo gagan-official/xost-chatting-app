@@ -6,6 +6,17 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+    background-position: center;
+    background-size: 70%;
+    animation: bgEffect .5s;
+}
+@keyframes bgEffect {
+    from {
+        background-size: 100%;
+    }
+    to {
+        background-size: 70%;
+    }
 }
 .mainCont::before {
     content: "";
@@ -17,54 +28,19 @@
 
 .leftCont {
     width: 70%;
+    position: relative;
+    animation: fadeInLeft .5s;
 }
 
-.shade1,
-.shade2 {
-    position: absolute;
-    height: 250%;
-    aspect-ratio: 1/1;
-    left: 25%;
-    top: -145%;
-    background: radial-gradient(46.04% 46.04% at 50% 50%, #294198 0%, rgba(50, 50, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-}
-.shade1 {
-    height: 70%;
-    left: -8%;
-    top: auto;
-    bottom: 0%;
-}
-.circle {
-    position: absolute;
-    top: -20%;
-    left: -23.5%;
-    height: 100%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    transform: rotate(180deg);
-    background: conic-gradient(from 0deg at 49.95% 56.16%, #E4701C 0deg, #000000 360deg);
-}
-.logo {
-    position: relative;
-    display: block;
-    width: 40%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    aspect-ratio: 1/1;
-    background-image: url("../public/assets/XOSTLogo.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    text-align: center;
-}
-.para {
-    color: #fff;
-    font-style: italic;
-    font-family: 'Poly', serif;
-    font-size: 2rem;
-    white-space: nowrap;
-    position: relative;
-    top: 100%;
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-10%);
+        opacity: .5;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .rightCont {
@@ -77,6 +53,18 @@
     display: flex;
     align-items: center;
     box-shadow: -20px 0px 60px rgba(0, 0, 0, 0.35);
+    animation: fadeInRight .5s;
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(10%);
+        opacity: .5;
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .rightInnerCont {
@@ -85,29 +73,4 @@
     position: relative;
     left: 10%;
     margin-top: 8%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.heading {
-    text-transform: uppercase;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-}
-.loginImg {
-    background-image: url("../public/assets/loginImg.svg");
-    width: 100%;
-    aspect-ratio: 1/1;
-}
-.googleBtn {
-    all: unset;
-    padding: 1rem 1.5rem 1rem 1rem;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.2rem;
-    border-radius: 10rem;
 }
