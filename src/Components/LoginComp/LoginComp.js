@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import styles from './LoginComp.module.css';
 import { SiGoogle } from 'react-icons/si';
@@ -20,12 +21,24 @@ export function LeftLoginComp() {
   );
 }
 
-export function RightLoginComp() {
+export function RightLoginComp(props) {
+
+  const [state, setState] = useState(false);
+
+  props.setStateFun(state);
+
   return (
     <div className={styles.rightLoginCont}>
       <h1 className={styles.heading}>Login</h1>
       <span className={styles.loginImg}/>
-      <Button variant="contained" style={{borderRadius: "10rem"}} className={styles.googleBtn}><SiGoogle size={"1.5rem"}/> Login with Google</Button>
+      <Button 
+        variant="contained" 
+        style={{borderRadius: "10rem"}} 
+        className={styles.googleBtn}
+        onClick={()=>setState(true)}
+      >
+        <SiGoogle size={"1.5rem"}/> Login with Google
+      </Button>
     </div>
   );
 }

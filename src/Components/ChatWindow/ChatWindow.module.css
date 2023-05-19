@@ -32,7 +32,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     aspect-ratio: 1/1;
-    background-image: url("../../public/assets/XOSTLogo.svg");
+    background-image: url("../../../public/assets/XOSTLogo.svg");
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
@@ -64,7 +64,7 @@
   font-family: 'Inter', sans-serif;
 }
 .loginImg {
-  background-image: url("../../public/assets/loginImg.svg");
+  background-image: url("../../../public/assets/loginImg.svg");
   width: 100%;
   aspect-ratio: 1/1;
   background-size: contain;
