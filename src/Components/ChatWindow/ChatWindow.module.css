@@ -1,82 +1,179 @@
 /* ################# Left Elements Styling ################# */
 .shade1,
 .shade2 {
-    position: absolute;
-    height: 250%;
-    aspect-ratio: 1/1;
-    left: 25%;
-    top: -145%;
-    background: radial-gradient(46.04% 46.04% at 50% 50%, #294198 0%, rgba(50, 50, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  position: absolute;
+  height: 250%;
+  aspect-ratio: 1/1;
+  left: 25%;
+  top: -145%;
+  background: radial-gradient(46.04% 46.04% at 50% 50%, #294198 0%, rgba(50, 50, 50, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
 .shade1 {
-    height: 70%;
-    left: -8%;
-    top: auto;
-    bottom: 0%;
+  height: 70%;
+  left: -8%;
+  top: auto;
+  bottom: 0%;
 }
-.circle {
-    position: absolute;
-    top: -30%;
-    left: -40%;
-    height: 110%;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    transform: rotate(180deg);
-    background: conic-gradient(from 0deg at 49.95% 56.16%, #E4701C 0deg, #000000 360deg);
+.circle1 ,
+.circle2 {
+  position: absolute;
+  height: 140%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  opacity: .8;
+}
+.circle1 {
+  top: -53%;
+  left: -51%;
+  transform: rotate(180deg);
+  background: conic-gradient(from 0deg at 49.95% 56.16%, #E4701C 0deg, #000000 360deg);
+}
+.circle2 {
+  top: 53%;
+  left: -3%;
+  background: conic-gradient(from 179.89deg at 49.95% 56.16%, #000000 0deg, #200808 360deg);
+}
+.logo ,
+.logoSmall {
+  position: relative;
+  aspect-ratio: 1/1;
+  background-image: url("../../../public/assets/XOSTLogo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .logo {
-    position: relative;
-    display: block;
-    width: 37%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    aspect-ratio: 1/1;
-    background-image: url("../../../public/assets/XOSTLogo.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 37%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-.para {
-    color: #fff;
-    font-style: italic;
-    font-family: 'Poly', serif;
-    font-size: 2rem;
-    white-space: nowrap;
-    position: relative;
-    top: 100%;
+.para,
+.subpara,
+.version {
+  white-space: nowrap;
+  position: relative;
+}
+.para ,
+.subpara {
+  top: 100%;
+  font-size: 1.5rem;
+  font-family: 'Inter';
+  color: #E6E6E6;
+  margin: 0;
+  height: fit-content;
+}
+.subpara {
+  margin-top: 7px;
+  font-size: 1rem;
+  color: #B4B4B4;
 }
 
 /* ################# Right Elements Styling ################# */
-.rightLoginCont {
+.rightChatWindowCont ,
+.topCont ,
+.midCont {
   width: 100%;
   height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1rem;
   align-items: center;
 }
-.heading {
-  text-transform: uppercase;
-  color: #CECECE;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
+
+.topCont,
+.midCont {
+  justify-content: space-between;
+  position: relative;
+  flex-direction: row;
+  height: fit-content;
+  margin-top: 1rem;
 }
-.loginImg {
-  background-image: url("../../../public/assets/loginImg.svg");
+
+.logoSmall {
+  width: 3rem;
+}
+.version {
+  color: #787878;
+  left: 100%;
+}
+
+.userName {
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Inter";
+}
+
+.inputCont {
+  border-radius: 10rem;
+  padding: 5px;
+  border: 2px solid #8C8C8C;
+  transition: .2s;
+  color: #8C8C8C;
+  display: flex;
+  align-items: center;
   width: 100%;
-  aspect-ratio: 1/1;
-  background-size: contain;
 }
-.googleBtn {
-  gap: 1rem;
-  padding: 1rem 1.5rem 1rem 1rem !important;
-  color: #fff !important;
-  background-color: #252525 !important;
-  border-radius: 10rem !important;
-  box-shadow: -5px -5px 10px 3px rgba(0, 0, 0, 0.4), 3px 3px 10px 3px rgba(255, 255, 255, 0.1) !important;
+.searchIcon {
+  padding: 5px 8px;
+  cursor: pointer;
 }
-.googleBtn:hover {
-  background-color: #313131 !important;
+.searchIcon:hover {
+  color: #fff;
+}
+.inputCont input {
+  all: unset;
+  width: 100%;
+  color: #fff;
+  caret-color: #8C8C8C;
+}
+
+.chatHeads {
+  width: 100%;
+  padding: 0 0 10px 2rem;
+  margin-left: -2rem;
+  color: #fff;
+  overflow-y: auto;
+}
+.chatHeads::-webkit-scrollbar {
+  background: #8a8a8a;
+  border-radius: 0 10px 0 0;
+  width: 10px;
+}
+.chatHeads::-webkit-scrollbar-thumb {
+  border-radius: 0 10px 0 0;
+  border: 1px solid #8a8a8a;
+  background: #535353;
+}
+
+.listItemClass:hover .leftIcon,
+.listItemClass:focus-visible .leftIcon,
+.leftIcon.active {
+  color: #8a8a8a;
+  opacity: 1;
+  visibility: visible;
+  left: -2rem;
+}
+.leftIcon.active {
+  color: #fff;
+}
+
+.leftIcon {
+  position: absolute;
+  left: -.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+}
+
+.status {
+  padding: 4px;
+  border-radius: 50%;
+  background-color: #00D03A;
+  position: absolute;
+  right: 16px;
+  bottom: 0;
 }

@@ -10,6 +10,9 @@
     background-size: 70%;
     animation: bgEffect .5s;
 }
+.mainCont2 {
+    background-image: url("../public/assets/chatbg2.svg");
+}
 @keyframes bgEffect {
     from {
         background-size: 100%;

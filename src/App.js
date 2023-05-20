@@ -17,6 +17,7 @@ function App() {
     <GlobalLayout
       insideLeftContainer={leftContainerComp}
       insideRightContainer={rightContainerComp}
+      bgChange={state}
     />
   );
 }
