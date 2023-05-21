@@ -6,8 +6,13 @@ import { LeftChatWindow, RightChatWindow } from './Components/ChatWindow/ChatWin
 function App() {
   const [state, setState] = useState(false);
 
-  const leftContainerComp = state? <LeftChatWindow/> : <LeftLoginComp/>;
-  const rightContainerComp = state? <RightChatWindow/> : <RightLoginComp setStateFun={(bool)=>setState(bool)}/>;
+  const [activeApp, setActiveApp] = useState({
+    bool: false,
+    arrIndex: null,
+  });
+
+  const leftContainerComp = state? <LeftChatWindow active={activeApp}/> : <LeftLoginComp/>;
+  const rightContainerComp = state? <RightChatWindow sendActive={(active)=>setActiveApp(active)}/> : <RightLoginComp setStateFun={(bool)=>setState(bool)}/>;
 
   // useEffect(() => {
   //   setState(true);

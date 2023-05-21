@@ -173,7 +173,8 @@
   padding: 4px;
   border-radius: 50%;
   background-color: #00D03A;
+  border: 2px solid #202020;
   position: absolute;
-  right: 16px;
-  bottom: 0;
+  right: 14px;
+  bottom: -2px;
 }

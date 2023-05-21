@@ -1,20 +1,50 @@
 import React, { useRef, useState } from "react";
 import {
+  AppBar,
   Avatar,
+  Box,
+  Container,
   Divider,
+  IconButton,
   List,
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Toolbar,
+  Tooltip,
 } from "@mui/material";
 import styles from "./ChatWindow.module.css";
 import { CgProfile } from "react-icons/cg";
 import { FiSearch } from "react-icons/fi";
 import { BsChevronLeft } from "react-icons/bs";
 
-export function LeftChatWindow() {
+export function LeftChatWindow(props) {
+  // const [active, setActive] = useState({
+  //   bool: false,
+  //   arrIndex: null,
+  // });
+  
+  const {bool, arrIndex} = props.active;
+
   return (
     <>
+      {bool ?
+        (<AppBar position="static" sx={{ width: "150%", background: "#353535CC" }}>
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Box sx={{ flexGrow: 0 }}>
+                <Tooltip title="Open settings">
+                  <IconButton sx={{ p: 0 }}>
+                    <Avatar alt={chatData[arrIndex].name} src="/static/images/avatar/2.jpg" />
+                  </IconButton>
+                </Tooltip>
+              </Box>
+              &nbsp;&nbsp;&nbsp;{chatData[arrIndex].name}
+            </Toolbar>
+          </Container>
+        </AppBar>)
+      :
+      <>  
       <span className={styles.shade1} />
       <span className={styles.shade2} />
       <span className={styles.circle1} />
@@ -27,7 +57,8 @@ export function LeftChatWindow() {
         src={"../public/assets/XOSTLogo.svg"}
         alt="Xost Logo"
         className={styles.logo}
-      /> */}
+      /> */}</>
+    }
     </>
   );
 }
@@ -90,11 +121,13 @@ export const chatData = [
   },
 ];
 
-export function RightChatWindow() {
+export function RightChatWindow(props) {
   const [active, setActive] = useState({
     bool: false,
     arrIndex: null,
   });
+
+  props.sendActive(active);
 
   const inputRef = useRef(null);
   
@@ -135,8 +168,7 @@ export function RightChatWindow() {
                   style={{
                     background:
                       active.bool && active.arrIndex === index
-                        ? "linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 49.93%, rgba(255, 255, 255, 0) 100%)"
-                        : "",
+                        && "linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 49.93%, rgba(255, 255, 255, 0) 100%)",
                   }}
                   className={styles.listItemClass}
                   onClick={() => setActive({ bool: true, arrIndex: index })}
@@ -151,8 +183,8 @@ export function RightChatWindow() {
                         }`}
                   />
                   <ListItemAvatar style={{position: "relative"}}>
-                    <Avatar>
-                      <CgProfile />
+                    <Avatar alt={chats.name} src="/static/images/avatar/2.jpg" >
+                      {/* <CgProfile /> */}
                     </Avatar>
                     {chats.status==="active" && 
                       <span className={styles.status}/>
