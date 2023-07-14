@@ -11,7 +11,7 @@ function App() {
     arrIndex: null,
   });
 
-  const leftContainerComp = state? <LeftChatWindow active={activeApp}/> : <LeftLoginComp/>;
+  const leftContainerComp = state? <LeftChatWindow active={activeApp} sendActive={(active)=>setActiveApp(active)}/> : <LeftLoginComp/>;
   const rightContainerComp = state? <RightChatWindow sendActive={(active)=>setActiveApp(active)}/> : <RightLoginComp setStateFun={(bool)=>setState(bool)}/>;
 
   // useEffect(() => {

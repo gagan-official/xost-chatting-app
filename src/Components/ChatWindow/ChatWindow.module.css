@@ -1,4 +1,16 @@
 /* ################# Left Elements Styling ################# */
+.exitIcon {
+  display: flex;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .2s;
+}
+.exitIcon:hover {
+  background-color: #232222;
+}
+
 .shade1,
 .shade2 {
   position: absolute;
