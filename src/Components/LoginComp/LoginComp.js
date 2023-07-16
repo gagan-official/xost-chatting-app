@@ -32,8 +32,7 @@ export function RightLoginComp(props) {
       <h1 className={styles.heading}>Login</h1>
       <span className={styles.loginImg}/>
       <Button 
-        variant="contained" 
-        style={{borderRadius: "10rem"}} 
+        variant="contained"
         className={styles.googleBtn}
         onClick={()=>setState(true)}
       >

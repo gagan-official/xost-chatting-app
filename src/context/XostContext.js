@@ -2,22 +2,22 @@ import { useState } from "react";
 import { createContext } from "react";
 
 const XostContext = createContext({
-  setActiveApp: () => {},
-  activeApp: {
+  setActive: () => {},
+  active: {
     bool: false,
     arrIndex: null,
   },
 });
 
 export function XostContextProvider(props) {
-  const [activeApp, setActiveApp] = useState({
+  const [active, setActive] = useState({
     bool: false,
     arrIndex: null,
   });
 
   const context = {
-    setActiveApp,
-    activeApp,
+    setActive,
+    active,
   };
 
   return (

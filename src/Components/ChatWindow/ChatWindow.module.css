@@ -1,4 +1,11 @@
 /* ################# Left Elements Styling ################# */
+.LeftChatWindowCont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .exitIcon {
   display: flex;
   padding: 0.5rem;
@@ -82,6 +89,59 @@
   font-size: 1rem;
   color: #B4B4B4;
 }
+
+
+/* -------------- ChatInput Styling -------------- */
+.chatInput_Btn_Cont ,
+.chatInputCont {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 10px;
+}
+.chatInputCont {
+  background-color: #1B1B1B;
+  border-radius: 10rem;
+  gap: .5rem;
+  align-items: center;
+  padding: 5px;
+  padding-left: 15px;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.25);
+}
+.options {
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.inputBox {
+  width: 100%;
+  height: .8rem;
+  border: none;
+  outline: none;
+  border-radius: 10rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+}
+.sendBtn {
+  height: 3.2rem !important;
+  width: 3.2rem !important;
+  max-height: 3.2rem !important;
+  max-width: 3.2rem !important;
+  min-height: 3.2rem !important;
+  min-width: 3.2rem !important;
+  border-radius: 50% !important;
+  background-color: #9EBBAD !important;
+  color: #353535 !important;
+  font-size: 2rem !important;
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.25) !important;
+  transition: .2s !important;
+}
+.sendBtn:hover {
+  background-color: #9EBBAD !important;
+  opacity: .8 !important;
+}
+
+
 
 /* ################# Right Elements Styling ################# */
 .rightChatWindowCont ,
@@ -190,3 +250,4 @@
   right: 14px;
   bottom: -2px;
 }
+
