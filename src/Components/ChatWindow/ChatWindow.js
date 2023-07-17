@@ -21,6 +21,10 @@ import { FiArrowUp, FiSearch } from "react-icons/fi";
 import { BsChevronLeft, BsChevronUp } from "react-icons/bs";
 import XostContext from "../../context/XostContext";
 
+import io from "socket.io-client"
+
+const socket = io.connect("http://localhost:3001");
+
 export function LeftChatWindow(props) {
   const { active, setActive } = useContext(XostContext);
 
