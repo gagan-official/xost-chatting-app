@@ -126,61 +126,55 @@ export function LeftChatWindow(props) {
 
 export const chatData = [
   {
+    id:1,
     name: "Nitin Batra",
     date: "May 14, 2023",
     status: "active",
   },
   {
-    name: "Gagandeep Singh",
-    date: "May 14, 2023",
-    status: "active",
+    id:2,
+    name: "Ajay Gour",
+    date: "Apr 1, 2023",
+    status: "inactive",
   },
   {
-    name: "Pankaj",
-    date: "May 14, 2023",
-    status: "offline",
+    id:3,
+    name: "Pankaj Kumar",
+    date: "May 2, 2023",
+    status: "inactive",
   },
   {
+    id:4,
+    name: "Crush",
+    date: "Feb 14, 2023",
+    status: "inactive",
+  },
+  {
+    id:5,
     name: "Ex",
-    date: "May 14, 2023",
+    date: "Jan 27, 2023",
     status: "active",
   },
   {
-    name: "Mom",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Dad",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Kullu",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Mohan",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Crush Mam",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Ex 2",
-    date: "May 14, 2023",
-    status: "offline",
-  },
-  {
-    name: "Crushhhhhhh",
-    date: "May 13, 2023",
+    id:6,
+    name: "current GF",
+    date: "Jul 17, 2023",
     status: "active",
-  },
+  }
 ];
+
+chatData.sort((a, b) => {
+  if (a.status === "active" && b.status !== "active") {
+    return -1; // a should come before b
+  } 
+  else if (a.status !== "active" && b.status === "active") {
+    return 1; // a should come after b
+  } 
+  else {
+    return 0; // the order remains the same
+  }
+});
+
 
 export function RightChatWindow(props) {
   const { active, setActive } = useContext(XostContext);
@@ -219,7 +213,7 @@ export function RightChatWindow(props) {
             return (
               <>
                 <Divider
-                  key={index}
+                  key={chats.id}
                   component="li"
                   style={{ backgroundColor: "#B4B4B4" }}
                 />
