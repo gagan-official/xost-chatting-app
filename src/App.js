@@ -4,6 +4,10 @@ import { LeftLoginComp, RightLoginComp } from './Components/LoginComp/LoginComp'
 import { LeftChatWindow, RightChatWindow } from './Components/ChatWindow/ChatWindow';
 import { XostContextProvider } from './context/XostContext';
 
+import io from "socket.io-client"
+
+const socket = io.connect("http://localhost:3001");
+
 function App() {
   const [state, setState] = useState(false);
 
