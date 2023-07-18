@@ -20,8 +20,10 @@ import { RxExit } from "react-icons/rx";
 import { FiArrowUp, FiSearch } from "react-icons/fi";
 import { BsChevronLeft, BsChevronUp } from "react-icons/bs";
 import XostContext from "../../context/XostContext";
+import chatBubbleData from "./demoChats";
+import { username } from "../../GlobalLayout";
 
-export function LeftChatWindow(props) {
+export function LeftChatWindow() {
   const { active, setActive } = useContext(XostContext);
 
   const { bool, arrIndex } = active;
@@ -72,12 +74,29 @@ export function LeftChatWindow(props) {
         </span>
       </AppBar>
 
+      {/* ------- ChatBubble Window ------- */}
+      <div className={styles.chatBubble_Window}>
+        {chatBubbleData.map((chats, index) => {
+          return (
+            <div
+              key={index}
+              className={`${styles.chatBubble} ${
+                chats.from.includes(username) ? styles.right : ""
+              }`}
+            >
+              {chats.chat}
+              <span className={styles.time}>{chats.time}</span>
+            </div>
+          );
+        })}
+      </div>
+
       {/* ------- Chat InputBox ------- */}
       <div className={styles.chatInput_Btn_Cont}>
         <span className={styles.chatInputCont}>
           <Tooltip title="Options">
             <span className={styles.options}>
-              <BsChevronUp/>
+              <BsChevronUp />
             </span>
           </Tooltip>
           <input
@@ -122,57 +141,54 @@ export function LeftChatWindow(props) {
 
 export const chatData = [
   {
-    id:1,
+    id: 1,
     name: "Nitin Batra",
     date: "May 14, 2023",
     status: "active",
   },
   {
-    id:2,
+    id: 2,
     name: "Ajay Gour",
     date: "Apr 1, 2023",
     status: "inactive",
   },
   {
-    id:3,
+    id: 3,
     name: "Pankaj Kumar",
     date: "May 2, 2023",
     status: "inactive",
   },
   {
-    id:4,
+    id: 4,
     name: "Crush",
     date: "Feb 14, 2023",
     status: "inactive",
   },
   {
-    id:5,
+    id: 5,
     name: "Ex",
     date: "Jan 27, 2023",
     status: "active",
   },
   {
-    id:6,
-    name: "current GF",
+    id: 6,
+    name: "Current GF",
     date: "Jul 17, 2023",
     status: "active",
-  }
+  },
 ];
 
 chatData.sort((a, b) => {
   if (a.status === "active" && b.status !== "active") {
     return -1; // a should come before b
-  } 
-  else if (a.status !== "active" && b.status === "active") {
+  } else if (a.status !== "active" && b.status === "active") {
     return 1; // a should come after b
-  } 
-  else {
+  } else {
     return 0; // the order remains the same
   }
 });
 
-
-export function RightChatWindow(props) {
+export function RightChatWindow() {
   const { active, setActive } = useContext(XostContext);
 
   const inputRef = useRef(null);
@@ -190,7 +206,9 @@ export function RightChatWindow(props) {
         <span className={styles.logoSmall}>
           <p className={styles.version}>v1.0</p>
         </span>
-        <span className={styles.userName}>Welcome Gagandeep!</span>
+        <span className={styles.userName}>
+          Welcome {username.split(" ")[0]}!
+        </span>
       </div>
       <div className={styles.midCont}>
         <span className={styles.inputCont} ref={inputRef}>
@@ -207,14 +225,12 @@ export function RightChatWindow(props) {
         <List sx={{ width: "100%", padding: "0" }} className={styles.listClass}>
           {chatData.map((chats, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 <Divider
-                  key={chats.id}
                   component="li"
                   style={{ backgroundColor: "#B4B4B4" }}
                 />
                 <ListItem
-                  key={index}
                   button
                   style={{
                     background:
@@ -253,7 +269,7 @@ export function RightChatWindow(props) {
                     }}
                   />
                 </ListItem>
-              </>
+              </React.Fragment>
             );
           })}
         </List>
