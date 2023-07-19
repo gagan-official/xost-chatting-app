@@ -79,6 +79,10 @@
   border-radius: 10rem !important;
   box-shadow: -5px -5px 10px 3px rgba(0, 0, 0, 0.4), 3px 3px 10px 3px rgba(255, 255, 255, 0.1) !important;
 }
-.googleBtn:hover {
+/* .googleBtn:hover {
+  background-color: #313131 !important;
+} */
+
+.forAvtar:hover{
   background-color: #313131 !important;
 }

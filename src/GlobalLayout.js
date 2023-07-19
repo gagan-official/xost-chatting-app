@@ -3,6 +3,29 @@ import styles from "./App.module.css";
 // import { useLocation } from "react-router-dom";
 // import XostContext from "./context/XostContext";
 
+export const avtars=[
+  {
+    name:"Zeus",
+    id:1,
+    vector:"😇",
+  },
+  {
+    name:"Shadow",
+    id:2,
+    vector:"🙃",
+  },
+  {
+    name:"Akagami",
+    id:3,
+    vector:"😎",
+  },
+  {
+    name:"Scanor",
+    id:4,
+    vector:"🤗",
+  },
+]
+
 export const username = "Gagandeep Singh";
 
 const GlobalLayout = (props) => {

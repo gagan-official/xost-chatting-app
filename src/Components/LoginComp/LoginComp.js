@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import styles from "./LoginComp.module.css";
-import { SiGoogle } from "react-icons/si";
+// import { SiGoogle } from "react-icons/si";
 // import { Link } from "react-router-dom";
 // import XostContext from "../../context/XostContext";
+import { avtars } from "../../GlobalLayout";
 
 export function LeftLoginComp() {
   return (
@@ -36,7 +37,16 @@ export function RightLoginComp(props) {
         className={styles.googleBtn}
         onClick={() => setState(true)}
       >
-        <SiGoogle size={"1.5rem"} /> Login with Google
+        {/* <SiGoogle size={"1.5rem"} /> Login with Google */}
+        {avtars.map((item,index)=>{
+          return(
+            <div key={index} className="forAvtar">
+              <div className="forvector">{item.vector}</div>
+              <h4 className="forName">{item.name}</h4>
+            </div>
+          );
+        })
+        }
       </Button>
       {/* <Link to="/chats">
         <Button variant="contained" className={styles.googleBtn}>
