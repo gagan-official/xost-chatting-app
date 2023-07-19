@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   AppBar,
   Avatar,
@@ -22,6 +22,7 @@ import { BsChevronLeft, BsChevronUp } from "react-icons/bs";
 import XostContext from "../../context/XostContext";
 import chatBubbleData from "./demoChats";
 import { username } from "../../GlobalLayout";
+import { socket } from "../../App";
 
 export function LeftChatWindow() {
   const { active, setActive } = useContext(XostContext);
@@ -29,6 +30,8 @@ export function LeftChatWindow() {
   const { bool, arrIndex } = active;
 
   const handleActive = () => setActive({ bool: false, arrIndex: null });
+
+  const [currentMsg, setCurrentMsg]=useState("");
 
   useEffect(() => {
     if (bool) {
@@ -106,6 +109,9 @@ export function LeftChatWindow() {
             className={styles.inputBox}
             autoFocus
             placeholder="Type a message"
+            onChange={(e)=>{
+              setCurrentMsg(e.target.value)
+            }}
           />
         </span>
         <Tooltip title="Send">
@@ -113,6 +119,17 @@ export function LeftChatWindow() {
             variant="contained"
             className={styles.sendBtn}
             disableElevation
+            onClick={async ()=>{
+                if(currentMsg!==""){
+                  const msg={
+                    author:username,
+                    to:chatData[arrIndex].name,
+                    data:currentMsg,
+                    time:new Date(Date.now()).getHours()+":"+new Date(Date.now()).getMinutes()
+                  } 
+                  await socket.emit("sendMsg",msg)
+                }
+            }}  
           >
             <FiArrowUp />
           </Button>
@@ -241,7 +258,13 @@ export function RightChatWindow() {
                       "linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 49.93%, rgba(255, 255, 255, 0) 100%)",
                   }}
                   className={styles.listItemClass}
-                  onClick={() => setActive({ bool: true, arrIndex: index })}
+                  onClick={() => {
+                    setActive({ bool: true, arrIndex: index })
+                    socket.emit("selfRoom",{
+                      of:chats.name,
+                      by:username
+                    })
+                  }}
                 >
                   <BsChevronLeft
                     size="2rem"

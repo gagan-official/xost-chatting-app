@@ -13,7 +13,7 @@ import { XostContextProvider } from "./context/XostContext";
 import io from "socket.io-client";
 // import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const socket = io.connect("http://localhost:3001");
+export const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [state, setState] = useState(false);
