@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import GlobalLayout from "./GlobalLayout";
 import {
   LeftLoginComp,
@@ -11,15 +11,24 @@ import {
 import { XostContextProvider } from "./context/XostContext";
 
 import io from "socket.io-client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const socket = io.connect("http://localhost:3001");
 
 function App() {
+  const [state, setState] = useState(false);
+
+  const leftContainerComp = state? <LeftChatWindow/> : <LeftLoginComp/>;
+  const rightContainerComp = state? <RightChatWindow/> : <RightLoginComp setStateFun={(bool)=>setState(bool)}/>;
 
   return (
     <XostContextProvider>
-      <BrowserRouter>
+      <GlobalLayout
+        insideLeftContainer={leftContainerComp}
+        insideRightContainer={rightContainerComp}
+        bgChange={state}
+      />
+      {/* <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -40,7 +49,7 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </XostContextProvider>
   );
 }

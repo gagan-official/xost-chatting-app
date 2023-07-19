@@ -84,8 +84,10 @@ export function LeftChatWindow() {
                 chats.from.includes(username) ? styles.right : ""
               }`}
             >
-              {chats.chat}
-              <span className={styles.time}>{chats.time}</span>
+              <div className={styles.chatBubble_Inner}>
+                {chats.chat}
+                <span className={styles.time}>{chats.time}</span>
+              </div>
             </div>
           );
         })}
