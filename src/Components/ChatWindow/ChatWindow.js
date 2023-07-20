@@ -15,23 +15,28 @@ import {
   Tooltip,
 } from "@mui/material";
 import styles from "./ChatWindow.module.css";
+import Picker from "@emoji-mart/react";
+import data from "@emoji-mart/data";
 // import { CgProfile } from "react-icons/cg";
 import { RxExit } from "react-icons/rx";
 import { FiArrowUp, FiSearch } from "react-icons/fi";
-import { BsChevronLeft, BsChevronUp } from "react-icons/bs";
+import { BsChevronLeft } from "react-icons/bs";
+import { MdOutlineEmojiEmotions } from "react-icons/md";
 import XostContext from "../../context/XostContext";
 import chatBubbleData from "./demoChats";
 import { username } from "../../GlobalLayout";
 import { socket } from "../../App";
 
 export function LeftChatWindow() {
+  const [showEmojies, setShowEmojies] = useState(false);
+  const [emoji, setEmoji] = useState(false);
   const { active, setActive } = useContext(XostContext);
 
   const { bool, arrIndex } = active;
 
   const handleActive = () => setActive({ bool: false, arrIndex: null });
 
-  const [currentMsg, setCurrentMsg]=useState("");
+  const [currentMsg, setCurrentMsg] = useState("");
 
   useEffect(() => {
     if (bool) {
@@ -99,18 +104,35 @@ export function LeftChatWindow() {
       {/* ------- Chat InputBox ------- */}
       <div className={styles.chatInput_Btn_Cont}>
         <span className={styles.chatInputCont}>
-          <Tooltip title="Options">
-            <span className={styles.options}>
-              <BsChevronUp />
-            </span>
-          </Tooltip>
+          {/* <Tooltip title="Choose Emoji">
+            <React.Fragment>
+              <Button
+                variant="text"
+                className={`${styles.options} "optionClass"`}
+                onClick={() => setShowEmojies((t) => !t)}
+              >
+                <MdOutlineEmojiEmotions />
+              </Button>
+              {showEmojies && (
+                <div className={styles.emojiPickerCont}>
+                  <Picker
+                    data={data}
+                    previewPosition="none"
+                    onEmojiSelect={(e) => {
+                      setEmoji(e.native);
+                    }}
+                  />
+                </div>
+              )}
+            </React.Fragment>
+          </Tooltip> */}
           <input
             type="text"
             className={styles.inputBox}
             autoFocus
             placeholder="Type a message"
-            onChange={(e)=>{
-              setCurrentMsg(e.target.value)
+            onChange={(e) => {
+              setCurrentMsg(e.target.value);
             }}
           />
         </span>
@@ -119,17 +141,20 @@ export function LeftChatWindow() {
             variant="contained"
             className={styles.sendBtn}
             disableElevation
-            onClick={async ()=>{
-                if(currentMsg!==""){
-                  const msg={
-                    author:username,
-                    to:chatData[arrIndex].name,
-                    data:currentMsg,
-                    time:new Date(Date.now()).getHours()+":"+new Date(Date.now()).getMinutes()
-                  } 
-                  await socket.emit("sendMsg",msg)
-                }
-            }}  
+            onClick={async () => {
+              if (currentMsg !== "") {
+                const msg = {
+                  author: username,
+                  to: chatData[arrIndex].name,
+                  data: currentMsg,
+                  time:
+                    new Date(Date.now()).getHours() +
+                    ":" +
+                    new Date(Date.now()).getMinutes(),
+                };
+                await socket.emit("sendMsg", msg);
+              }
+            }}
           >
             <FiArrowUp />
           </Button>
@@ -259,11 +284,11 @@ export function RightChatWindow() {
                   }}
                   className={styles.listItemClass}
                   onClick={() => {
-                    setActive({ bool: true, arrIndex: index })
-                    socket.emit("selfRoom",{
-                      of:chats.name,
-                      by:username
-                    })
+                    setActive({ bool: true, arrIndex: index });
+                    socket.emit("selfRoom", {
+                      of: chats.name,
+                      by: username,
+                    });
                   }}
                 >
                   <BsChevronLeft
