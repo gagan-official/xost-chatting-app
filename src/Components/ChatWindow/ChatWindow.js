@@ -15,21 +15,25 @@ import {
   Tooltip,
 } from "@mui/material";
 import styles from "./ChatWindow.module.css";
+/*
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
+*/
 // import { CgProfile } from "react-icons/cg";
 import { RxExit } from "react-icons/rx";
 import { FiArrowUp, FiSearch } from "react-icons/fi";
 import { BsChevronLeft } from "react-icons/bs";
+/*
 import { MdOutlineEmojiEmotions } from "react-icons/md";
+*/
 import XostContext from "../../context/XostContext";
 import chatBubbleData from "./demoChats";
 import { username } from "../../GlobalLayout";
 import { socket } from "../../App";
 
 export function LeftChatWindow() {
-  const [showEmojies, setShowEmojies] = useState(false);
-  const [emoji, setEmoji] = useState(false);
+  //const [showEmojies, setShowEmojies] = useState(false);
+  //const [emoji, setEmoji] = useState(false);
   const { active, setActive } = useContext(XostContext);
 
   const { bool, arrIndex } = active;
